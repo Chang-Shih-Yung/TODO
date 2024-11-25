@@ -10,7 +10,7 @@
       <ng-container *ngFor="let item of todoList; let key = index">
         <li class="flex justify-center items-center mt-4 h-12 px-4 border" *ngIf="item.title && item.status == 0">
           <!-- 雙向綁定狀態值的改變，預設=0，checkbox點擊狀態返回1/0，所以點擊之後變1。並且雙向綁定傳回、更新todoList物件的status-->
-          <input type="checkbox" [(ngModel)]="item.status">{{ item.title }}
+          <input type="checkbox" [(ngModel)]="item.status" (change)="checkboxChange()">{{ item.title }}
           <button (click)="delete(key.toString())" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">X</button>
         </li>
       </ng-container>
@@ -20,7 +20,7 @@
       <ng-container *ngFor="let item of todoList; let key = index">
         <li class="flex justify-center items-center mt-4 h-12 px-4 border" *ngIf="item.title && item.status == 1">
           <!-- 雙向綁定狀態值的改變 -->
-          <input type="checkbox" [(ngModel)]="item.status">{{ item.title }}
+          <input type="checkbox" [(ngModel)]="item.status" (change)="checkboxChange()">{{ item.title }}
           <button (click)="delete(key.toString())" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">X</button>
         </li>
       </ng-container>
