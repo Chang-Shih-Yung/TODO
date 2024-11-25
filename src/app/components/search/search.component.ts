@@ -15,7 +15,11 @@ export class SearchComponent {
     //在 JavaScript 和 TypeScript 中，Array.prototype.indexOf 方法會返回指定元素在陣列中的第一個索引位置。如果元素不存在於陣列中，則會返回 -1。所以這裡可以避免重複存入歷史紀錄
     if (this.history.indexOf(this.keyword) == -1) {
       this.history.push(this.keyword);
-    } else if (this.keyword === '') return;
+    }
+    if (this.keyword === '') {
+      alert('請輸入搜尋關鍵字');
+      return;
+    }
     //將搜尋關鍵字存入歷史紀錄，假設關鍵字不存在於歷史紀錄中
     this.keyword = ''; //清空搜尋框
     console.log(this.keyword);
