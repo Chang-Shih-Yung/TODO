@@ -13,4 +13,11 @@ import { StorageService } from './services/storage.service';
 })
 export class AppComponent {
   title = 'todo';
+
+  message: string = '';
+  //接收子組件傳遞的數據然後觸發的方法
+  handleMessage(childData: string) {
+    this.message = childData;
+    // console.log('Received from child:', data);
+  }
 }

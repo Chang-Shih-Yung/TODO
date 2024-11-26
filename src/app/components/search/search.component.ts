@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //雙向綁定一定要記得引入FormsModule
 import { FormsModule } from '@angular/forms';
@@ -17,7 +17,14 @@ import { StorageService } from '../../services/storage.service';
 })
 export class SearchComponent {
   //官方storage初始化用法
-  constructor(public storage: StorageService) { }
+  constructor(public storage: StorageService) {}
+
+  //官方EventEmitter初始化用法
+  @Output() messageEvent = new EventEmitter<string>();
+  // 觸發事件並傳遞資料
+  sendMessage() {
+    this.messageEvent.emit('Hello,我是子組件');
+  }
 
   //將發法掛載到生命週期觸發
   ngOnInit(): void {

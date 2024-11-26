@@ -1,2 +1,3 @@
-<app-search></app-search>
+<app-search (messageEvent)="handleMessage($event)"></app-search>
+<p class="border">來自子組件的訊息欄位: {{ message }}</p>
 <app-todolist></app-todolist>
